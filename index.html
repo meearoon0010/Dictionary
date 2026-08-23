@@ -1,22 +1,106 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>말कोश — Korean · Nepali Dictionary</title>
-  <style>
-    :root{--bg:#f5f7fb;--surface:#fff;--ink:#162033;--muted:#68758d;--line:#e3e9f2;--brand:#4f46e5;--blue:#086bd6;--red:#dc3e4b;--shadow:0 14px 38px #21346415}.dark{--bg:#10131a;--surface:#191e29;--ink:#eff3ff;--muted:#a4adc0;--line:#30394c;--brand:#a39cff;--blue:#61b1ff;--red:#ff7f87;--shadow:0 14px 38px #0006}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Noto Sans KR","Noto Sans Devanagari",sans-serif}.shell{max-width:970px;margin:auto;padding:30px 18px 64px}header{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:24px}.brand{font-size:25px;font-weight:850;letter-spacing:-.7px}.brand span{color:var(--brand)}.small{font-size:13px;font-weight:500;color:var(--muted)}.actions{display:flex;gap:8px;flex-wrap:wrap}button,.import{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer}.hero,.card,.empty{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px}.hero{padding:27px}.hero h1{margin:0;font-size:27px;letter-spacing:-.7px}.hint{color:var(--muted);margin:4px 0 18px}.search{display:flex;gap:8px;background:var(--bg);border:1px solid var(--line);padding:7px;border-radius:13px}.search input{min-width:0;flex:1;padding:7px;border:0;outline:0;background:transparent;color:var(--ink);font:inherit}.search select{background:transparent;color:var(--ink);border:0;border-left:1px solid var(--line);padding-left:10px;font:inherit}.tabs{display:flex;gap:8px;margin:20px 0 14px}.tabs button.active,.primary{background:var(--brand);border-color:var(--brand);color:#fff}.card{padding:19px;margin:0 0 12px}.entry-top{display:flex;justify-content:space-between;gap:14px}.word{font-weight:800;font-size:24px}.nepali{font-size:20px;margin-top:3px}.pron{font-size:13px;color:var(--muted);margin-top:8px}.star,.sound{border:0;background:transparent;padding:3px 7px;font-size:20px}.star.on{color:#f5b401}.relations{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}.tag{font-size:13px;padding:4px 9px;border-radius:999px;color:var(--blue);background:color-mix(in srgb,var(--blue) 11%,transparent)}.tag.opposite{color:var(--red);background:color-mix(in srgb,var(--red) 11%,transparent)}.empty{text-align:center;padding:38px;color:var(--muted)}dialog{width:calc(100% - 28px);max-width:510px;padding:0;border:0;border-radius:18px;background:var(--surface);color:var(--ink);box-shadow:0 20px 60px #0008}dialog::backdrop{background:#0008}.form{padding:23px}.form h2{margin:0 0 12px}.form label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}.form input{width:100%;padding:9px;border:1px solid var(--line);border-radius:9px;background:var(--bg);color:var(--ink);font:inherit}.form-actions{display:flex;justify-content:end;gap:8px;margin-top:17px}.import input{display:none}@media(max-width:560px){header{align-items:flex-start;flex-direction:column}.hero{padding:20px}.search{flex-wrap:wrap}.search select{width:100%;border-left:0;border-top:1px solid var(--line);padding:8px}}
-  </style>
+<meta charset="UTF-8">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Korean-Nepali Dictionary by Arun Ale · 한-네 사전</title>
+<meta name="description" content="A two-way Korean–Nepali dictionary with pronunciation, favorites, and your own added words.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23163832%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23E3A73A%22>가</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+Devanagari:wght@400;600&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body><div class="shell">
-  <header><div class="brand">말<span>कोश</span> <span class="small">Korean · Nepali Dictionary</span></div><div class="actions"><button id="add">＋ Add word</button><button id="theme" title="Toggle dark mode">◐</button></div></header>
-  <section class="hero"><h1>Find the word you need.</h1><p class="hint">Search Korean or Nepali · Press the speaker to hear Korean pronunciation.</p><div class="search"><input id="query" autofocus placeholder="한국어 또는 नेपालीमा खोज्नुहोस्"><select id="direction"><option value="all">Korean ↔ Nepali</option><option value="ko">Korean → Nepali</option><option value="ne">Nepali → Korean</option></select></div></section>
-  <main><div class="tabs"><button class="active" data-view="all">All words</button><button data-view="fav">★ Favourites</button></div><div id="results"></div></main>
-</div><dialog id="editor"><form class="form" id="wordForm"><h2>Add a word</h2><label>Korean</label><input name="ko" required placeholder="예: 사랑"><label>Nepali</label><input name="ne" required placeholder="उदाहरण: प्रेम"><label>Romanised pronunciation</label><input name="pron" placeholder="sarang"><label>Similar words (comma separated)</label><input name="similar" placeholder="애정, 좋아하다"><label>Opposite words (comma separated)</label><input name="opposite" placeholder="미움"><div class="form-actions"><button type="button" id="cancel">Cancel</button><button class="primary">Save word</button></div></form></dialog>
-<script src="dictionary-data.js"></script><script>
-  const stored=JSON.parse(localStorage.getItem('malkosh-custom')||'[]'),words=[...stored,...DICTIONARY_DATA],favs=new Set(JSON.parse(localStorage.getItem('malkosh-favs')||'[]'));let view='all';const q=document.querySelector('#query'),box=document.querySelector('#results');
-  const esc=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); const save=()=>localStorage.setItem('malkosh-favs',JSON.stringify([...favs]));
-  function speak(word){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(word);u.lang='ko-KR';speechSynthesis.speak(u)}
-  function render(){let term=q.value.trim().toLowerCase(),dir=document.querySelector('#direction').value;let list=words.filter((w,i)=>{let korean=w.ko.toLowerCase().includes(term),nepali=w.ne.toLowerCase().includes(term),pron=(w.pron||'').toLowerCase().includes(term);return (!term||korean||nepali||pron)&&(dir==='all'||(dir==='ko'&&korean)||(dir==='ne'&&(nepali||pron)))&&(view==='all'||favs.has(i))});box.innerHTML=list.length?list.map(w=>{let i=words.indexOf(w);return `<article class="card"><div class="entry-top"><div><div class="word">${esc(w.ko)} <button class="sound" onclick="speak(${JSON.stringify(w.ko)})" aria-label="Hear ${esc(w.ko)}">🔊</button></div><div class="nepali">${esc(w.ne)}</div>${w.pron?`<div class="pron">${esc(w.pron)}</div>`:''}</div><button class="star ${favs.has(i)?'on':''}" onclick="fav(${i})" aria-label="Favourite">${favs.has(i)?'★':'☆'}</button></div>${(w.similar?.length||w.opposite?.length)?`<div class="relations">${(w.similar||[]).map(x=>`<span class="tag">Similar · ${esc(x)}</span>`).join('')}${(w.opposite||[]).map(x=>`<span class="tag opposite">Opposite · ${esc(x)}</span>`).join('')}</div>`:''}</article>`}).join(''):`<div class="empty">${view==='fav'?'No favourite words yet.':'No matching word found.'}</div>`}
-  window.speak=speak;window.fav=i=>{favs.has(i)?favs.delete(i):favs.add(i);save();render()};q.addEventListener('input',render);document.querySelector('#direction').addEventListener('change',render);document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{view=b.dataset.view;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));render()});
-  const editor=document.querySelector('#editor');document.querySelector('#add').onclick=()=>editor.showModal();document.querySelector('#cancel').onclick=()=>editor.close();document.querySelector('#wordForm').onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),custom={ko:f.get('ko'),ne:f.get('ne'),pron:f.get('pron'),similar:f.get('similar').split(',').map(x=>x.trim()).filter(Boolean),opposite:f.get('opposite').split(',').map(x=>x.trim()).filter(Boolean)};stored.unshift(custom);localStorage.setItem('malkosh-custom',JSON.stringify(stored));words.unshift(custom);e.target.reset();editor.close();render()};document.querySelector('#theme').onclick=()=>{document.body.classList.toggle('dark');localStorage.setItem('malkosh-dark',document.body.classList.contains('dark'))};if(localStorage.getItem('malkosh-dark')==='true')document.body.classList.add('dark');render();
-</script></body></html>
+<body>
+
+<div class="stampfield" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">가</span>
+    <div class="brand-text">
+      <h1>한-네 사전</h1>
+      <p class="brand-sub">कोरियाली&nbsp;↔&nbsp;नेपाली शब्दकोश &middot; Korean–Nepali Dictionary</p>
+      <p class="brand-credit">by Arun Ale</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="stats" id="stats" aria-live="polite"></div>
+    <button id="themeToggle" class="icon-btn theme-toggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="sticky-controls">
+    <section class="searchbar-wrap">
+      <div class="searchbar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="searchInput" type="text" placeholder="Type in 한국어 or नेपाली / English…  ex: 가게 · pasal · to teach" autocomplete="off" spellcheck="false">
+        <button id="clearSearch" class="clear-btn" title="Clear" aria-label="Clear search">&times;</button>
+      </div>
+      <p class="search-hint">Searches both directions at once — Korean, Nepali, and any similar/opposite words on file.</p>
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="all" role="tab" aria-selected="true">All words <span class="count" id="countAll"></span></button>
+      <button class="tab" data-tab="fav" role="tab" aria-selected="false">★ Favorites <span class="count" id="countFav"></span></button>
+      <button class="tab" data-tab="mine" role="tab" aria-selected="false">Mine <span class="count" id="countMine"></span></button>
+      <button class="tab" data-tab="trash" role="tab" aria-selected="false">🗑 Deleted <span class="count" id="countTrash"></span></button>
+      <button id="addWordBtn" class="tab add-tab">+ Add word</button>
+    </nav>
+  </div>
+
+  <section id="resultsWrap">
+    <div id="results" class="results"></div>
+    <p id="emptyState" class="empty-state" hidden>No entries match yet. Try a different spelling, or add it yourself.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <p>Data: <span id="footCount"></span> Korean–Nepali entries, plus anything you add or edit on this device. Favorites, added words, and edits are stored locally in your browser (no server, no account) — they don't change the shared word list for other visitors.</p>
+</footer>
+
+<!-- Add word modal -->
+<div id="modalOverlay" class="modal-overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <h2 id="modalTitle">Add a word</h2>
+      <button id="modalClose" class="icon-btn" aria-label="Close">&times;</button>
+    </div>
+    <form id="addWordForm">
+      <label>
+        <span>Korean <em>(required)</em></span>
+        <input type="text" id="fKo" required placeholder="가게">
+      </label>
+      <label>
+        <span>Nepali / English meaning <em>(required)</em></span>
+        <input type="text" id="fNp" required placeholder="पसल">
+      </label>
+      <label>
+        <span>Similar words <em>(optional)</em></span>
+        <input type="text" id="fSimilar" placeholder="가족">
+      </label>
+      <label>
+        <span>Opposite words <em>(optional)</em></span>
+        <input type="text" id="fOpposite" placeholder="불가능하다">
+      </label>
+      <div class="modal-actions">
+        <button type="button" id="resetEdit" class="btn ghost" hidden>Reset to original</button>
+        <button type="button" id="cancelAdd" class="btn ghost">Cancel</button>
+        <button type="submit" class="btn primary" id="saveWordBtn">Save word</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden></div>
+
+<script src="script.js"></script>
+</body>
+</html>
